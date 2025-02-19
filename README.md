@@ -4,3 +4,7 @@
   },
 
 3. if update required : npm install -D @playwright/test@latest
+
+   ===================================GIT=======================================
+   :wq
+   no merge :q!
