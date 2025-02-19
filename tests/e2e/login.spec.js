@@ -22,9 +22,18 @@ test('first test', async ({ page }) => {
         console.log("Soft assertion failed, but test continues...");
     }
 
-
-
     await expect(page.locator('text=Products')).toBeVisible();
+
+    // multiple locators
+
+    const buttons = await page.locator('button.btn.btn_primary.btn_small.btn_inventory').nth(3).click()
+
+    // for(const button of buttons){
+    //     await button.nth(3).click()
+    //     break
+    
+    // }
+    await expect(page.locator('text=Remove')).toBeVisible();
 
 
 
