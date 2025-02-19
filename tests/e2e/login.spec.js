@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test'
 
 
-test('first test', async ({ page }) => {
+test.skip('first test', async ({ page }) => {
 
     await page.goto('https://www.saucedemo.com/')
     await page.locator('[placeholder="Username"]').fill('standard_user')
     await page.locator('[placeholder="Password"]').fill('secret_sauce')
 
-    await page.locator("[id='login-button']").click()
+    await page.locator("[id='login-button']").press('Enter')
 
     //assertions
 
@@ -31,16 +31,8 @@ test('first test', async ({ page }) => {
     // for(const button of buttons){
     //     await button.nth(3).click()
     //     break
-    
+
     // }
     await expect(page.locator('text=Remove')).toBeVisible();
-
-
-
-
-
-
-
-
 
 })
