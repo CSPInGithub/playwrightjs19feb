@@ -37,6 +37,8 @@ Even though only one test is running, it can still open multiple independent bro
 
 14.npx playwright test --trace on
 
+15.Clone your repository 2. Install Node.js 3. Install NPM Dependencies 4. Install Playwright Browsers 5. Run Playwright tests 6. Upload HTML report to the GitHub UI
+
 
 
 
