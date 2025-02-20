@@ -1,13 +1,12 @@
-import {test,expect} from '@playwright/test'
-import {LoginPage} from '../../pages/LoginPage'
+// @ts-nocheck
 import logindata from '../../testdata/logindata.json'
 
-test('pom first import export test', async({page})=>{
+import { test, expect } from '../../fixtures/myfixture'
 
-    const loginPage = new LoginPage(page)
+test('pom first import export test', async ({ loginpage }) => {
+    await loginpage.navigate(logindata.validUser.url)
+    await loginpage.login(logindata.validUser.username, logindata.validUser.password)
+    await expect(loginpage.page).toHaveURL(logindata.validUser.expectedUrl)
+    await expect(loginpage.page.locator('select.product_sort_container')).toBeVisible()
+});
 
-    loginPage.navigate(logindata.validUser.url)
-    loginPage.login(logindata.validUser.username,logindata.validUser.password)
-    await expect(page).toHaveURL(logindata.validUser.expectedUrl)
-    await expect(page.locator('select.product_sort_container')).toBeVisible()
-})

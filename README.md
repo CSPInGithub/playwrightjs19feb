@@ -39,6 +39,22 @@ Even though only one test is running, it can still open multiple independent bro
 
 15.Clone your repository 2. Install Node.js 3. Install NPM Dependencies 4. Install Playwright Browsers 5. Run Playwright tests 6. Upload HTML report to the GitHub UI
 
+16.Fixtures in Playwright are reusable components that provide setup, teardown, and context for tests. They help manage browser instances, authentication, and test data.
+
+17. first create loator file and use export const loginLocators
+    second create page class, import locator here and export class with constructr as this.page=page;this.userfeild=page.locator('') and create methods ysung asycnc naviagte(ur){ await this.page.goto(url)}
+
+18 third create fixture import test as base and class then use export const test=base.extend({
+  classobj:async({page},use){
+
+    loginPage = new LoginPage(page)
+    await use(loginPage)
+
+  }
+}) and export expcet
+
+19 then import fixture over in test.spec.js and use impirt test data.json
+
 
 
 

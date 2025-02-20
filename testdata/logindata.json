@@ -2,7 +2,13 @@
     "validUser": {
         "url": "https://www.saucedemo.com/",
         "username": "standard_user",
-        "password": "secret_sauce1",
+        "password": "secret_sauce",
         "expectedUrl": "https://www.saucedemo.com/inventory.html"
+    },
+    "invalidUser": {
+        "url": "https://www.saucedemo.com/",
+        "username": "locked_out_user",
+        "password": "secret_sauce",
+        "expectedMessage": "Epic sadface: Sorry, this user has been locked out."
     }
 }
