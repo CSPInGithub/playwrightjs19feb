@@ -11,6 +11,9 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write  # ✅ Allows GitHub Actions to push changes
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -47,8 +50,8 @@ jobs:
       # ✅ Commit and Push Report to Repository (for GitHub Pages)
       - name: Commit Playwright Report to Repository
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add docs/
-          git commit -m "Update Playwright Report [skip ci]" || echo "No changes to commit"
-          git push
+           git config --global user.name "github-actions"
+           git config --global user.email "github-actions@github.com"
+           git add docs/
+           git commit -m "Update Playwright Report [skip ci]" || echo "No changes to commit"
+           git push origin HEAD:main  # ✅ Ensure you're pushing to the correct branch
