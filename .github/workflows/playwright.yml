@@ -35,7 +35,7 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: docs/
+          path: docs/playwright/
           retention-days: 1
 
       # ✅ Commit and Push Report to main/master
