@@ -26,8 +26,14 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Ensure docs directory exists
+        run: mkdir -p docs/playwright  # ✅ Make sure docs/playwright exists
+
       - name: Run Playwright tests
-        run: npx playwright test --reporter=html
+        run: npx playwright test
+
+      - name: Debug file structure
+        run: ls -R docs/ || echo "docs directory is empty"  # ✅ Debugging step
 
       # ✅ Upload Playwright Report as an artifact
       - name: Upload Playwright Report
@@ -38,7 +44,7 @@ jobs:
           path: docs/playwright/
           retention-days: 1
 
-      # ✅ Commit and Push Report to main/master
+      # ✅ Commit and Push Report to Repository (for GitHub Pages)
       - name: Commit Playwright Report to Repository
         run: |
           git config --global user.name "github-actions"
